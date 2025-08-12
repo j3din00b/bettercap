@@ -194,7 +194,9 @@ func (s *Session) Close() {
 		}
 	}
 
-	s.Firewall.Restore()
+	if s.Firewall != nil {
+		s.Firewall.Restore()
+	}
 
 	if *s.Options.EnvFile != "" {
 		envFile, _ := fs.Expand(*s.Options.EnvFile)
@@ -330,6 +332,7 @@ func (s *Session) Start() error {
 	plugin.Defines["saveJSON"] = jsSaveJSONFunc
 	plugin.Defines["saveToFile"] = jsSaveToFileFunc
 	plugin.Defines["onEvent"] = jsOnEventFunc
+	plugin.Defines["removeEventListener"] = jsRemoveEventListenerFunc
 	plugin.Defines["session"] = s
 
 	// load the script here so the session and its internal objects are ready

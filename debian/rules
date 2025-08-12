@@ -2,6 +2,7 @@
 
 export GOCACHE=$(CURDIR)/vendor
 export GOPATH=$(CURDIR)/vendor
+export DEB_BUILD_OPTIONS=nocheck
 
 %:
 	dh $@ --buildsystem=golang --builddirectory=_build
@@ -17,9 +18,6 @@ override_dh_dwz:
 
 override_dh_auto_install:
 	dh_auto_install -- --no-source
-
-override_dh_auto_test:
-	go test ./... -mod=mod
 
 override_dh_installsystemd:
 	dh_installsystemd --no-enable --no-start

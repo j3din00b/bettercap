@@ -1,3 +1,10 @@
+bettercap (2.41.1-1kaisen) kaisen-packages; urgency=medium
+
+  * Import the 2.41.1 release
+  * Update the golang-go version required to build
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>  Sun, 03 Aug 2025 15:38:07 +0200
+
 bettercap (2.40.0-1kaisen) kaisen-packages; urgency=medium
 
   * Import the 2.40.0 release
